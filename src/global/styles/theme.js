@@ -12,4 +12,9 @@ export const theme = {
     black: "#000000",
     green: "#039D00",
   },
+
+  fonts: {
+    text: "Roboto_400Regular",
+    title: "Roboto_700Bold",
+  },
 };
