@@ -1,16 +1,20 @@
 import React from "react";
-import { View, Text, Image } from "react-native";
+import { Text, Image } from "react-native";
+import { LinearGradient } from "expo-linear-gradient";
 
-import { BackgroundGradient } from "../BackgroundGradient";
+import { theme } from "../../global/styles/theme";
 import { styles } from "./styles";
 
 export function Header({ title, icon }) {
+  const { secondary05, secondary02 } = theme.color;
+
   return (
-    <BackgroundGradient>
-      <View style={styles.container}>
-        <Image source={icon} style={styles.icon} />
-        <Text style={styles.title}>{title}</Text>
-      </View>
-    </BackgroundGradient>
+    <LinearGradient
+      style={styles.container}
+      colors={[secondary05, secondary02]}
+    >
+      <Image source={icon} style={styles.icon} />
+      <Text style={styles.title}>{title}</Text>
+    </LinearGradient>
   );
 }
