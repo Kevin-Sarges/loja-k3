@@ -7,13 +7,12 @@ export const styles = StyleSheet.create({
   },
 
   filter: {
+    marginTop: 47,
     paddingLeft: 21,
   },
 
-  label: {
-    marginBottom: 14,
-    fontSize: 18,
-    fontFamily: theme.fonts.title,
-    color: theme.color.black,
+  products: {
+    marginTop: 62,
+    paddingHorizontal: 21,
   },
 });
