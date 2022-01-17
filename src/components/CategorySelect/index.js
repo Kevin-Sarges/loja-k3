@@ -6,21 +6,19 @@ import { Category } from "../Category";
 import { categories } from "../../utils/categories";
 import { styles } from "./styles";
 
-export function CategorySelect({ categorySelected, setCategory }) {
+export function CategorySelect() {
   return (
     <ScrollView
       horizontal
       showsHorizontalScrollIndicator={false}
       style={styles.container}
-      contentContainerStyle={{ paddingRight: 21 }}
+      contentContainerStyle={{ paddingRight: 16 }}
     >
       {categories.map((category) => (
         <Category
           key={category.id}
           icon={category.icon}
           title={category.name}
-          checked={category.id === categorySelected}
-          onPress={() => setCategory(category.id)}
         />
       ))}
     </ScrollView>
