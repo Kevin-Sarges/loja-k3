@@ -1,5 +1,6 @@
-import React from "react";
+import React, { useState } from "react";
 import { View, FlatList } from "react-native";
+import { useNavigation } from "@react-navigation/native";
 
 import { Header } from "../../components/Header";
 import { CategorySelect } from "../../components/CategorySelect";
@@ -11,6 +12,17 @@ import { productsFake } from "../../utils/fakeData";
 import { styles } from "./styles";
 
 export function Home() {
+  const navigation = useNavigation();
+  const [category, setCategory] = useState("");
+
+  function handleCategorySelect(categoryId) {
+    categoryId === category ? setCategory("") : setCategory(categoryId);
+  }
+
+  function handleProduct() {
+    navigation.navigate("Product");
+  }
+
   return (
     <>
       <Header title="Loja K3" icon={Logo} />
@@ -18,7 +30,10 @@ export function Home() {
       <View style={styles.container}>
         <View style={styles.filter}>
           <Label content="Filtrar Produtos" />
-          <CategorySelect />
+          <CategorySelect
+            categorySelected={category}
+            setCategory={handleCategorySelect}
+          />
         </View>
 
         <View style={styles.products}>
@@ -33,6 +48,7 @@ export function Home() {
                 image={item.image}
                 name={item.name}
                 price={item.price}
+                onPress={handleProduct}
               />
             )}
             showsVerticalScrollIndicator={false}

@@ -6,7 +6,9 @@ import { Category } from "../Category";
 import { categories } from "../../utils/categories";
 import { styles } from "./styles";
 
-export function CategorySelect() {
+export function CategorySelect(props) {
+  //const [categorySelect, setCategorySelect] = useState("");
+
   return (
     <ScrollView
       horizontal
@@ -19,6 +21,8 @@ export function CategorySelect() {
           key={category.id}
           icon={category.icon}
           title={category.name}
+          checked={category.id === props.categorySelected}
+          onPress={() => props.setCategory(category.id)}
         />
       ))}
     </ScrollView>

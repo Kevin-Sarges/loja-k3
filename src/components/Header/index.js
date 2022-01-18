@@ -5,7 +5,7 @@ import { LinearGradient } from "expo-linear-gradient";
 import { theme } from "../../global/styles/theme";
 import { styles } from "./styles";
 
-export function Header({ title, icon, children }) {
+export function Header(props) {
   const { secondary05, secondary02 } = theme.color;
 
   return (
@@ -13,9 +13,9 @@ export function Header({ title, icon, children }) {
       style={styles.container}
       colors={[secondary05, secondary02]}
     >
-      {children}
-      <Image source={icon} style={styles.icon} />
-      <Text style={styles.title}>{title}</Text>
+      {props.children}
+      <Image source={props.icon} style={styles.icon} />
+      <Text style={styles.title}>{props.title}</Text>
     </LinearGradient>
   );
 }

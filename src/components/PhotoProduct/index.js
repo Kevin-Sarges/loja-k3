@@ -3,6 +3,6 @@ import { Image } from "react-native";
 
 import { styles } from "./styles";
 
-export function PhotoProduct({ image }) {
-  return <Image source={image} style={styles.container} />;
+export function PhotoProduct(props) {
+  return <Image source={props.image} style={styles.container} />;
 }

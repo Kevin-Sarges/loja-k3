@@ -7,26 +7,26 @@ import { BackgroundContainer } from "../BackgroundContainer";
 import { styles } from "./styles";
 import { theme } from "../../global/styles/theme";
 
-export function Category({ icon, title }) {
-  const { secondary01, secondary02, secondary03, secondary04, secondary05 } =
-    theme.color;
-  const [checked, setChecked] = useState("");
+export function Category(props) {
+  const { secondary01, secondary03, secondary04, secondary05 } = theme.color;
+  //const [checked, setChecked] = useState("");
 
-  function handleClick() {
-    checked ? setChecked("") : setChecked(true);
-  }
+  //function handleClick() {
+  //  props.checked ? setChecked("") : setChecked(true);
+  //}
+  // onPress={handleClick}
 
   return (
-    <TouchableOpacity onPress={handleClick} activeOpacity={0.7}>
+    <TouchableOpacity activeOpacity={0.7} {...props}>
       <BackgroundContainer>
         <LinearGradient
-          style={[styles.content, { opacity: checked ? 1 : 0.4 }]}
-          colors={[checked ? secondary01 : secondary03, secondary04]}
+          style={[styles.content, { opacity: props.checked ? 1 : 0.4 }]}
+          colors={[props.checked ? secondary01 : secondary03, secondary04]}
         >
-          <Image source={icon} style={styles.icon} />
+          <Image source={props.icon} style={styles.icon} />
         </LinearGradient>
 
-        <Text style={styles.title}>{title}</Text>
+        <Text style={styles.title}>{props.title}</Text>
       </BackgroundContainer>
     </TouchableOpacity>
   );
