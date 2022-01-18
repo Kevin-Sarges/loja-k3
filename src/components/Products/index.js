@@ -1,16 +1,23 @@
 import React from "react";
 import { View, Text, TouchableOpacity } from "react-native";
+import { useNavigation } from "@react-navigation/native";
 
 import { BackgroundContainer } from "../BackgroundContainer";
 import { PhotoProduct } from "../PhotoProduct";
 import { styles } from "./styles";
 
-export function Products({ name, price }) {
+export function Products({ name, price, image }) {
+  const navigation = useNavigation();
+
+  function handleProduct() {
+    navigation.navigate("Product");
+  }
+
   return (
-    <TouchableOpacity activeOpacity={0.7}>
+    <TouchableOpacity activeOpacity={0.7} onPress={handleProduct}>
       <View style={styles.container}>
         <BackgroundContainer>
-          <PhotoProduct />
+          <PhotoProduct image={image} />
         </BackgroundContainer>
 
         <View style={styles.content}>
