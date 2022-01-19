@@ -17,12 +17,10 @@ export function Home() {
 
   function handleCategorySelect(categoryId) {
     categoryId === category ? setCategory("") : setCategory(categoryId);
-    console.log(categoryId);
   }
 
   function handleProduct(product) {
     navigation.navigate("Product", { product });
-    console.log(product);
   }
 
   return (
