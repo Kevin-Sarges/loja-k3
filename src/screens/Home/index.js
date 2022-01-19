@@ -17,10 +17,12 @@ export function Home() {
 
   function handleCategorySelect(categoryId) {
     categoryId === category ? setCategory("") : setCategory(categoryId);
+    console.log(categoryId);
   }
 
-  function handleProduct() {
-    navigation.navigate("Product");
+  function handleProduct(product) {
+    navigation.navigate("Product", { product });
+    console.log(product);
   }
 
   return (
@@ -48,7 +50,7 @@ export function Home() {
                 image={item.image}
                 name={item.name}
                 price={item.price}
-                onPress={handleProduct}
+                onPress={() => handleProduct(item)}
               />
             )}
             showsVerticalScrollIndicator={false}
