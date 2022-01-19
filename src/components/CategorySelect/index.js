@@ -7,8 +7,6 @@ import { categories } from "../../utils/categories";
 import { styles } from "./styles";
 
 export function CategorySelect(props) {
-  //const [categorySelect, setCategorySelect] = useState("");
-
   return (
     <ScrollView
       horizontal

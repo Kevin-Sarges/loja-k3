@@ -27,7 +27,7 @@ export const styles = StyleSheet.create({
     color: theme.color.black,
   },
 
-  t: {
+  value: {
     fontFamily: theme.fonts.title,
     color: theme.color.green,
   },

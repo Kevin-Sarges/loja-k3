@@ -9,12 +9,6 @@ import { theme } from "../../global/styles/theme";
 
 export function Category(props) {
   const { secondary01, secondary03, secondary04, secondary05 } = theme.color;
-  //const [checked, setChecked] = useState("");
-
-  //function handleClick() {
-  //  props.checked ? setChecked("") : setChecked(true);
-  //}
-  // onPress={handleClick}
 
   return (
     <TouchableOpacity activeOpacity={0.7} {...props}>
