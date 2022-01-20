@@ -66,7 +66,7 @@ export const productsFake = [
   {
     id: "6",
     name: "Relogio",
-    category: "4",
+    category: "3",
     price: "R$20,00",
     whatsapp: "99999999999",
     description:

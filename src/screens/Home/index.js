@@ -13,7 +13,7 @@ import { styles } from "./styles";
 
 export function Home() {
   const navigation = useNavigation();
-  const [category, setCategory] = useState("");
+  const [category, setCategory] = useState("1");
 
   function handleCategorySelect(categoryId) {
     categoryId === category ? setCategory("") : setCategory(categoryId);
@@ -42,15 +42,19 @@ export function Home() {
           <FlatList
             data={productsFake}
             keyExtractor={(item) => item.id}
-            renderItem={({ item }) => (
-              <Products
-                key={item.id}
-                image={item.image}
-                name={item.name}
-                price={item.price}
-                onPress={() => handleProduct(item)}
-              />
-            )}
+            renderItem={({ item }) =>
+              category === item.category ? (
+                <Products
+                  key={item.id}
+                  image={item.image}
+                  name={item.name}
+                  price={item.price}
+                  onPress={() => handleProduct(item)}
+                />
+              ) : (
+                category === ""
+              )
+            }
             showsVerticalScrollIndicator={false}
             contentContainerStyle={{ paddingBottom: 550 }}
           />
