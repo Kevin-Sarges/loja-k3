@@ -14,11 +14,13 @@ import { styles } from "./styles";
 
 export function Home() {
   const navigation = useNavigation();
-  const [category, setCategory] = useState("");
+  const [categorySelect, setCategorySelect] = useState("");
   const [loading, setLoading] = useState(false);
 
   function handleCategorySelect(categoryId) {
-    categoryId === category ? setCategory("") : setCategory(categoryId);
+    categoryId === categorySelect
+      ? setCategorySelect("")
+      : setCategorySelect(categoryId);
   }
 
   function handleProduct(product) {
@@ -33,7 +35,7 @@ export function Home() {
         <View style={styles.filter}>
           <Label content="Filtrar Produtos" />
           <CategorySelect
-            categorySelected={category}
+            categorySelected={categorySelect}
             setCategory={handleCategorySelect}
           />
         </View>
@@ -44,12 +46,12 @@ export function Home() {
           <View style={styles.products}>
             <Label content="Produtos" />
 
-            {category ? (
+            {categorySelect ? (
               <FlatList
                 data={productsFake}
                 keyExtractor={(item) => item.id}
                 renderItem={({ item }) =>
-                  category === item.category ? (
+                  categorySelect === item.category ? (
                     <Products
                       key={item.id}
                       image={item.image}
@@ -58,7 +60,7 @@ export function Home() {
                       onPress={() => handleProduct(item)}
                     />
                   ) : (
-                    category === ""
+                    categorySelect === ""
                   )
                 }
                 showsVerticalScrollIndicator={false}
