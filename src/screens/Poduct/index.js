@@ -36,9 +36,9 @@ export function Product() {
           style={styles.backgroundImage}
           colors={[secondary05, secondary02]}
         >
-          <Image source={product.image} style={styles.image} />
+          <Image source={product.url_image_product} style={styles.image} />
         </LinearGradient>
-        <Label content={product.name} />
+        <Label content={product.name_product} />
 
         <View style={styles.description}>
           <Label content="Descrição" />
