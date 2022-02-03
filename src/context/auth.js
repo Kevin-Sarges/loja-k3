@@ -1,4 +1,5 @@
-import React, { createContext, useState, useEffect } from "react";
+import React, { createContext, useState } from "react";
+
 import api from "../services/api";
 export const AuthContex = createContext();
 
@@ -13,24 +14,26 @@ export function AuthProvider({ children }) {
       : setCategorySelect(categoryId);
   }
 
-  useEffect(() => {
-    async function listProduct() {
-      try {
-        const response = await api.get("/products");
+  async function listProduct() {
+    try {
+      const response = await api.get("/products");
 
-        setLoading(false);
-        setProducts(response.data);
-      } catch (error) {
-        console.log(error);
-      }
+      setLoading(false);
+      setProducts(response.data);
+    } catch (error) {
+      console.log(error);
     }
-
-    listProduct();
-  }, []);
+  }
 
   return (
     <AuthContex.Provider
-      value={{ products, loading, categorySelect, handleCategorySelect }}
+      value={{
+        products,
+        loading,
+        categorySelect,
+        handleCategorySelect,
+        listProduct,
+      }}
     >
       {children}
     </AuthContex.Provider>

@@ -1,6 +1,6 @@
-import React, { useContext, useState, useEffect } from "react";
+import React, { useContext, useCallback } from "react";
 import { View, FlatList } from "react-native";
-import { useNavigation } from "@react-navigation/native";
+import { useNavigation, useFocusEffect } from "@react-navigation/native";
 
 import { Header } from "../../components/Header";
 import { CategorySelect } from "../../components/CategorySelect";
@@ -14,12 +14,23 @@ import { styles } from "./styles";
 
 export function Home() {
   const navigation = useNavigation();
-  const { products, loading, categorySelect, handleCategorySelect } =
-    useContext(AuthContex);
+  const {
+    products,
+    loading,
+    categorySelect,
+    handleCategorySelect,
+    listProduct,
+  } = useContext(AuthContex);
 
   function handleProduct(product) {
     navigation.navigate("Product", { product });
   }
+
+  useFocusEffect(
+    useCallback(() => {
+      listProduct();
+    }, [products])
+  );
 
   return (
     <>

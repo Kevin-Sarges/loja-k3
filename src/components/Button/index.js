@@ -3,9 +3,9 @@ import { Text, TouchableOpacity } from "react-native";
 
 import { styles } from "./styles";
 
-export function Button() {
+export function Button(props) {
   return (
-    <TouchableOpacity style={styles.container} activeOpacity={0.7}>
+    <TouchableOpacity style={styles.container} activeOpacity={0.7} {...props}>
       <Text style={styles.text}>Comprar</Text>
     </TouchableOpacity>
   );

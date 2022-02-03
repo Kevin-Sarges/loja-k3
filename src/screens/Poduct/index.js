@@ -1,5 +1,12 @@
 import React from "react";
-import { TouchableOpacity, ScrollView, Image, View, Text } from "react-native";
+import {
+  TouchableOpacity,
+  ScrollView,
+  Image,
+  View,
+  Text,
+  Linking,
+} from "react-native";
 import { LinearGradient } from "expo-linear-gradient";
 import { useNavigation } from "@react-navigation/native";
 import { useRoute } from "@react-navigation/native";
@@ -54,7 +61,13 @@ export function Product() {
         </View>
 
         <View style={styles.footer}>
-          <Button />
+          <Button
+            onPress={() =>
+              Linking.openURL(
+                `https://api.whatsapp.com/send?1=pt_BR&phone=+55${product.whatsapp}&text=Desejo comprar o ${product.name_product} \n valor: ${product.price}`
+              )
+            }
+          />
         </View>
       </ScrollView>
     </>
