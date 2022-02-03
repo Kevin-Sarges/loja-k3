@@ -36,7 +36,10 @@ export function Product() {
           style={styles.backgroundImage}
           colors={[secondary05, secondary02]}
         >
-          <Image source={product.url_image_product} style={styles.image} />
+          <Image
+            source={{ uri: product.url_image_product }}
+            style={styles.image}
+          />
         </LinearGradient>
         <Label content={product.name_product} />
 

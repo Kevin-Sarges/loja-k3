@@ -4,5 +4,5 @@ import { Image } from "react-native";
 import { styles } from "./styles";
 
 export function PhotoProduct(props) {
-  return <Image source={props.image} style={styles.container} />;
+  return <Image source={{ uri: props.image }} style={styles.container} />;
 }

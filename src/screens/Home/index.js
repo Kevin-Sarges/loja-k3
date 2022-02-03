@@ -10,36 +10,16 @@ import { Load } from "../../components/Load";
 
 import Logo from "../../assets/logo.png";
 import { AuthContex } from "../../context/auth";
-import { productsFake } from "../../utils/fakeData";
 import { styles } from "./styles";
-
-import api from "../../services/api";
 
 export function Home() {
   const navigation = useNavigation();
-  const { loading, categorySelect, handleCategorySelect } =
+  const { products, loading, categorySelect, handleCategorySelect } =
     useContext(AuthContex);
-
-  const [products, setProducts] = useState();
 
   function handleProduct(product) {
     navigation.navigate("Product", { product });
   }
-
-  useEffect(() => {
-    async function listProduct() {
-      try {
-        const response = await api.get("/products");
-
-        setProducts(response.data);
-        console.log(response);
-      } catch (error) {
-        console.log(error);
-      }
-    }
-
-    listProduct();
-  }, []);
 
   return (
     <>
